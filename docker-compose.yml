@@ -7,3 +7,13 @@ services:
       - ./:/app:delegated
     ports:
       - '8000:80'
+  service-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: barbershopdb
+    ports:
+      - "15432:5432"
+
+    restart: unless-stopped

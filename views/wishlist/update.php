@@ -3,9 +3,9 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var app\models\Wishlist $model */
+/** @var app\models\Wishlists $model */
 
-$this->title = 'Update Wishlist: ' . $model->title;
+$this->title = 'Update Wishlists: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Wishlists', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

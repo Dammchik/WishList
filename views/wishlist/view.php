@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\models\Wishlist $model */
+/** @var app\models\Wishlists $model */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Wishlists', 'url' => ['index']];

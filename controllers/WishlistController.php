@@ -2,14 +2,14 @@
 
 namespace app\controllers;
 
-use app\models\Wishlist;
-use app\models\WishlistSearch;
+use app\models\Wishlists;
+use app\models\WishlistsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * WishlistController implements the CRUD actions for Wishlist model.
+ * WishlistController implements the CRUD actions for Wishlists model.
  */
 class WishlistController extends Controller
 {
@@ -32,13 +32,13 @@ class WishlistController extends Controller
     }
 
     /**
-     * Lists all Wishlist models.
+     * Lists all Wishlists models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new WishlistSearch();
+        $searchModel = new WishlistsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -48,7 +48,7 @@ class WishlistController extends Controller
     }
 
     /**
-     * Displays a single Wishlist model.
+     * Displays a single Wishlists model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,13 +61,13 @@ class WishlistController extends Controller
     }
 
     /**
-     * Creates a new Wishlist model.
+     * Creates a new Wishlists model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Wishlist();
+        $model = new Wishlists();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -83,7 +83,7 @@ class WishlistController extends Controller
     }
 
     /**
-     * Updates an existing Wishlist model.
+     * Updates an existing Wishlists model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -103,7 +103,7 @@ class WishlistController extends Controller
     }
 
     /**
-     * Deletes an existing Wishlist model.
+     * Deletes an existing Wishlists model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -117,15 +117,15 @@ class WishlistController extends Controller
     }
 
     /**
-     * Finds the Wishlist model based on its primary key value.
+     * Finds the Wishlists model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Wishlist the loaded model
+     * @return Wishlists the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Wishlist::findOne(['id' => $id])) !== null) {
+        if (($model = Wishlists::findOne(['id' => $id])) !== null) {
             return $model;
         }
 

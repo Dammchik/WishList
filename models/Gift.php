@@ -50,7 +50,7 @@ class Gift extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'wishlist_id' => 'Wishlist ID',
+            'wishlist_id' => 'Wishlists ID',
             'name' => 'Name',
             'description' => 'Description',
             'image_url' => 'Image Url',
@@ -79,7 +79,7 @@ class Gift extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Wishlist]].
+     * Gets query for [[Wishlists]].
      *
      * @return \yii\db\ActiveQuery
      */

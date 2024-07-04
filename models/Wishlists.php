@@ -14,7 +14,7 @@ use Yii;
  * @property Gifts[] $gifts
  * @property Users $user
  */
-class Wishlist extends \yii\db\ActiveRecord
+class Wishlists extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
