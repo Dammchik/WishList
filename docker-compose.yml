@@ -12,7 +12,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: barbershopdb
+      POSTGRES_DB: wishlistdb
     ports:
       - "15432:5432"
 

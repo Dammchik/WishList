@@ -16,6 +16,18 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'I-yVmGwEfhe1t22a2GW1lxwIz93FQa7E',
         ],
+        'response' => [
+            'class' => 'yii\web\Response',
+            'format' => yii\web\Response::FORMAT_HTML,
+            'charset' => 'UTF-8',
+            'on beforeSend' => function ($event) {
+                $response = $event->sender;
+                if (Yii::$app->request->get('format') === 'json' || Yii::$app->request->isAjax) {
+                    $response->format = yii\web\Response::FORMAT_JSON;
+                }
+            },
+        ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -45,10 +57,14 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'site/index',
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'gift', 'extraPatterns' => [
+                    'POST,OPTIONS' => 'create',
+                    'PUT,PATCH,OPTIONS {id}' => 'update',
+                    'DELETE,OPTIONS {id}' => 'delete'
+                ]],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'wishlist'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'category'],
             ],
         ],
         'db' => $db,
